@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script type="text/javascript" src="/static/page.js"></script>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body onload="updateState()">
+
+<h1>Heating</h1>
+
+<div class="pumpSelection">
+Floor:
+<!-- Floor Heating switch -->
+<label class="switch">
+  <input type="checkbox" id="floorHeating" onclick="HeatingFloor()">
+    <span class="slider round"></span>
+</label>
+</div>
+
+<div class="pumpSelection">
+<!-- Towel rail switch -->
+Towel rail:
+<label class="switch" for="towelRail">
+  <input type="checkbox" id="towelRail" onclick="TowelRail()">
+    <span class="slider round"></span>
+</label>
+</div>
+<p id="burner">Burner: OFF</p>
+<p id="floor">Underfloor heating pump: OFF</p>
+<p id="rail">Towel rail pump: OFF</p>
+</body>
+</html> 

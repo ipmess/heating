@@ -1,0 +1,106 @@
+Copy From Local to Remote Host 
+
+scp -r /home/user/test-directory pi@10.10.10.20:/home/pi/
+
+scp -r /home/user/test-directory pi@192.168.1.2:/home/pi/
+
+
+scp -r ./rpi-relay/ pi@192.168.1.38:/home/pi/heating
+
+scp -r ./requirements.txt pi@192.168.1.38:/home/pi/heating
+
+scp -r ./relay-real.py pi@192.168.1.38:/home/pi/heating/relay.py
+
+I have a flask web app (called _heating_) that runs fine locally. I can run the web application with the `flask run` command.
+
+My project structure:
+
+heating/
+├── static/
+│   ├── favicon.ico
+│   ├── page.js
+│   └── styles.css
+├── templates/
+│   └── index.html
+├── wsgi.py
+└── relay.py
+
+To run the web app locally, I issue the `flask run` command under the `heating` directory. My undertanding is that the way I am running it is a test run, and it is not suitable to deploy this in production. To deploy it in production, I want to use the gunicorn WSGI server to serve my Flask application.
+
+What steps should I follow?
+
+
+
+
+* create a docker container that will contain this web app
+* The web app will run in a python venv
+* I want to use the gunicorn WSGI server to serve my Flask application,
+* with the NGINX web server as the proxy server
+
+The container will run on a Debian server (that has a hostname of `rpi`).
+
+I need the web app to be accessible on the server's TCP port 80. The server does not belong to a registered domain, and will only run on an isolated local network, so I guess it can use the `.local` domain.
+
+
+
+
+I have an Ubuntu server (hostname `rpi`) with nginx up and running.  The flask application runs just fine when testing on the localhost.
+
+I want to serve the web app on port 80 of the server. There is no domain since this is an internal network, and the server is not accessible from the internet.
+
+I can create a `requirements.txt` file, if necessary.
+
+I would also like to run the web app in a
+
+
+
+
+
+
+
+gunicorn -w 2 --bind 0.0.0.0:8000 app:app
+
+gunicorn --config gunicorn_config.py app:app
+
+
+
+
+
+
+location / {
+  proxy_pass http://localhost:8000/;
+}
+
+location / {
+        proxy_pass http://127.0.0.1:8000/;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Prefix /;
+    }
+    
+    
+    
+    
+
+[Unit]
+Description=Gunicorn instance for the heating Flask application
+After=network.target
+
+[Service]
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/heating/
+Environment="PATH=/usr/bin/"
+ExecStart=/usr/bin/gunicorn --config /home/pi/heating/gunicorn_config.py app:app
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+
