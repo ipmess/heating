@@ -20,7 +20,7 @@ The physical connections are shown below:
 
 ![Physical connections](./physical.svg)
 
-The 4-channel SPDT Relay communicates over I^2^C.
+The 4-channel SPDT Relay communicates over I<sup>2</sup>C.
 
 ![The 4-Channel SPDT Relay](./4-channel-relay.jpg)
 
