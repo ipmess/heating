@@ -38,7 +38,7 @@ Once the physical connections were up and running, I had to deploy a web werver 
 
 The logical structure is shown below:
 
-! [Logical structure of controlling the three relays](./doc/logical.svg)
+![Logical structure of controlling the three relays](./doc/logical.svg)
 
 The above diagram shows the interaction of the three processes that make up this solution.
 
