@@ -20,6 +20,23 @@ The physical connections are shown below:
 
 ![Physical connections](./physical.svg)
 
+The relays are:
+
+* Legrand 4 125 44
+  * 25A 2 Pole Power Contactor 2 N/O with 230V AC Coil and Handle
+  * 230V ac control,
+  * 2 Normally Open contacts
+  * 17.8mm wide
+  * ~ 50€
+
+I also attached an auxiliary contact to the relays:
+
+* Legrand 4 124 29
+  * 9mm wide
+  * ~ 70€
+  
+I will use the auxiliary contacts in the future to read the state of the relays,
+
 The 4-channel SPDT Relay communicates over I<sup>2</sup>C.
 
 ![The 4-Channel SPDT Relay](./4-channel-relay.jpg)
@@ -56,3 +73,18 @@ The above diagram shows the interaction of the three processes that make up this
 7. The NGINX seb server relays this JSON object back to the web browser, as a reply to the original REST API call.
 8. When the JavaScript function running in the web browser receives the JSON reply from the API, it updates the page's DOM with the received information.
 
+# Raspberry Pi configuration
+
+First off, I installed the official Raspberry Pi OS using the Raspberry Imager, as described in [Install using Imager](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager).
+
+Briefly:
+
+1. you need to download the _installer_ on a computer,
+2. insert an SD-card onto the computer,
+3. and then write the OS installer image onto this SD Card.
+
+After selecting the SD card during the installation process, the Imager will ask you if you want to customize the installation.
+
+![OS customization screen](./doc/os-customisation-prompt.png)
+
+At this point, you should click on _EDIT SETTINGS_ and under _SERVICES_ enable SSH. You will need SSH 
