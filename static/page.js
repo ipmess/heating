@@ -36,11 +36,9 @@ function HeatingFloor() {
       .catch(error => {
         console.error('Error:', error);
       });
-      document.getElementById("burner").innerHTML = "Burner: OFF";
-      document.getElementById("floor").innerHTML = "Underfloor heating pump: OFF";
+      updateState();
     }
   }
-
 
 function TowelRail() {
     // Get the checkbox
@@ -79,8 +77,7 @@ function TowelRail() {
       .catch(error => {
         console.error('Error:', error);
       });
-      document.getElementById("burner").innerHTML = "Burner: OFF";
-      document.getElementById("rail").innerHTML = "Towel rail pump: OFF";
+      updateState();
     }
   }
 
@@ -94,23 +91,26 @@ function updateState() {
     })
     .then(data => {
       console.log(data);
-      if (data.floorHeating == 1) {
+      console.log("Floor value:", data.floor);
+      console.log("Floor heating value:", data.floorHeating);
+      if (data.floor == 1) {
         document.getElementById("floorHeating").checked = true;
-        document.getElementById("burner").innerHTML = "Burner: ON";
         document.getElementById("floor").innerHTML = "Underfloor heating pump: ON";
       } else {
         document.getElementById("floorHeating").checked = false;
-        document.getElementById("burner").innerHTML = "Burner: OFF";
         document.getElementById("floor").innerHTML = "Underfloor heating pump: OFF";
       }
-      if (data.towelRail == 1) {
+      if (data.rail == 1) {
         document.getElementById("towelRail").checked = true;
-        document.getElementById("burner").innerHTML = "Burner: ON";
         document.getElementById("rail").innerHTML = "Towel rail pump: ON";
       } else {
         document.getElementById("towelRail").checked = false;
-        document.getElementById("burner").innerHTML = "Burner: OFF";
         document.getElementById("rail").innerHTML = "Towel rail pump: OFF";
+      }
+      if (data.burner == 1) {
+        document.getElementById("burner").innerHTML = "Burner: ON";
+      } else {
+        document.getElementById("burner").innerHTML = "Burner: OFF";
       }
     })
     .catch(error => {

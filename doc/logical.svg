@@ -24,9 +24,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="0.25"
-     inkscape:cx="178"
-     inkscape:cy="-58"
+     inkscape:zoom="1"
+     inkscape:cx="703.5"
+     inkscape:cy="-182.5"
      inkscape:window-width="1310"
      inkscape:window-height="704"
      inkscape:window-x="0"
@@ -1548,26 +1548,6 @@
      y="421.61316"
      rx="24.8251"
      ry="24.83" />
-  <text
-     xml:space="preserve"
-     style="font-size:20px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="374.95105"
-     y="494.62866"
-     id="text15825"><tspan
-       sodipodi:role="line"
-       x="374.95105"
-       y="494.62866"
-       id="tspan15823">/</tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-size:20px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="362.51453"
-     y="557.50732"
-     id="text15829"><tspan
-       sodipodi:role="line"
-       x="362.51453"
-       y="557.50732"
-       id="tspan15827">/api/</tspan></text>
   <g
      id="g15845"
      transform="translate(-725.16533,10.773778)">
@@ -3230,26 +3210,6 @@
      y="1233.2517"
      rx="24.8251"
      ry="24.83" />
-  <text
-     xml:space="preserve"
-     style="font-size:20px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="374.95105"
-     y="1302.7893"
-     id="text19665"><tspan
-       sodipodi:role="line"
-       x="374.95105"
-       y="1302.7893"
-       id="tspan19663">/</tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-size:20px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="356.05164"
-     y="1360.3994"
-     id="text19669"><tspan
-       sodipodi:role="line"
-       x="356.05164"
-       y="1360.3994"
-       id="tspan19667">/api/</tspan></text>
   <g
      id="g19681"
      transform="translate(-725.16533,816.29955)">
@@ -3731,26 +3691,6 @@
      y="1482.0261"
      rx="24.8251"
      ry="24.83" />
-  <text
-     xml:space="preserve"
-     style="font-size:20px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="374.95105"
-     y="1551.5637"
-     id="text23727"><tspan
-       sodipodi:role="line"
-       x="374.95105"
-       y="1551.5637"
-       id="tspan23725">/</tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-size:20px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="354.17175"
-     y="1609.3418"
-     id="text23731"><tspan
-       sodipodi:role="line"
-       x="354.17175"
-       y="1609.3418"
-       id="tspan23729">/api/</tspan></text>
   <g
      id="g23743"
      transform="translate(-725.16533,1065.074)">
