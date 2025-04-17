@@ -116,6 +116,37 @@ sudo nmcli con add con-name eth0mechRoom ifname eth0 type ethernet \
 
 I guess there is a way to apply this connection profile to the eth0 interface (using the `nmcli con up eth0mechRoom` command). Alternatively, you can restart the Raspberry Pi with the `sudo shutdown -r now`.
 
+## NGINX server
+
+We need to install the NGINX server.
+
+## GUnicorn service
+
+The GUnicorn Flask application will not run automatically, not unless we define a `heatiing` service and systemd handles starting/restating/monitoring the Flask application. To create a GUnicorn service, create a `heating.service` file under the `/etc/systemd/system/` directory on the Raspbeerry Pi.
+
+~~~~~~~~
+pi@rpi:/etc/systemd/system $ cat heating.service 
+[Unit]
+Description=Gunicorn instance for the heating Flask application
+After=network.target
+
+[Service]
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/heating/
+Environment="PATH=/usr/bin/"
+ExecStart=/usr/bin/gunicorn --config /home/pi/heating/gunicorn_config.py app:app
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+~~~~~~~~
+
 # Mikrotik SXTsq 5 ac configuration
 
 You need a Windows computer with WinBox (a Mikrotik piece of software) to manage and configure the SXTsq 5 ac. In the end, the configuration looked like the following:
@@ -157,3 +188,4 @@ set enabled=yes
 add address=2.cy.pool.ntp.org
 add address=0.europe.pool.ntp.org
 ~~~~~~~~
+
