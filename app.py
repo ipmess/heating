@@ -18,7 +18,7 @@ def serve_index():
 @app.route("/turnOnFloorHeating")
 def turn_on_floor_heating():
     global state
-    relay.turn_on_channel(2)
+    relay.turn_on_channel(3)
     state["burner"] = True
     state["floor"] = True
     return state
@@ -26,7 +26,7 @@ def turn_on_floor_heating():
 @app.route("/turnOffFloorHeating")
 def turn_off_floor_heating():
     global state
-    relay.turn_off_channel(2)
+    relay.turn_off_channel(3)
     state["burner"] = False
     state["floor"] = False
     return state
@@ -34,7 +34,7 @@ def turn_off_floor_heating():
 @app.route("/turnOnTowelRail")
 def turn_on_towel_rail():
     global state
-    relay.turn_on_channel(1)
+    relay.turn_on_channel(4)
     state["burner"] = True
     state["rail"] = True
     return state
@@ -42,7 +42,7 @@ def turn_on_towel_rail():
 @app.route("/turnOffTowelRail")
 def turn_off_towel_rail():
     global state
-    relay.turn_off_channel(1)
+    relay.turn_off_channel(4)
     state["burner"] = False
     state["rail"] = False
     return state
